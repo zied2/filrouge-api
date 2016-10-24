@@ -2,6 +2,7 @@ package fr.ecp.sio.filrougeapi.data;
 
 import fr.ecp.sio.filrougeapi.model.Station;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public interface DataRepository {
 
-    Station getStation(long id);
-    List<Station> getStations();
+    Station getStation(long id) throws IOException;
+    List<Station> getStations() throws IOException;
 
 }

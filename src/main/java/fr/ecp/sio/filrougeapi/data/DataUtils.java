@@ -9,7 +9,7 @@ public class DataUtils {
 
     public static DataRepository getRepository() {
         if (sRepository == null) {
-            sRepository = new DummyDataRepository();
+            sRepository = new SQLDataRepository();
         }
         return sRepository;
     }

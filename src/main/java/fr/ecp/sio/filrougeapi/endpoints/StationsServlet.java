@@ -1,13 +1,10 @@
 package fr.ecp.sio.filrougeapi.endpoints;
 
-import com.google.gson.Gson;
-import fr.ecp.sio.filrougeapi.GsonUtils;
 import fr.ecp.sio.filrougeapi.data.DataRepository;
 import fr.ecp.sio.filrougeapi.data.DataUtils;
 import fr.ecp.sio.filrougeapi.model.Station;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

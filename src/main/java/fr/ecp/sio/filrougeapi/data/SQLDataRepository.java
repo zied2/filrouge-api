@@ -14,8 +14,8 @@ import java.util.List;
 public class SQLDataRepository implements DataRepository {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/velib?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static final String USER = "api";
-    private static final String PASSWORD = "api";
+    private static final String USER = "root";
+    private static final String PASSWORD = "promo2016";
 
     private Connection openConnection() throws SQLException {
         try {
@@ -61,7 +61,7 @@ public class SQLDataRepository implements DataRepository {
         List<Station> list = new ArrayList<>();
         try (
             Connection c = openConnection();
-            PreparedStatement stmt = c.prepareStatement("SELECT * FROM stations WHERE name = ?");
+            PreparedStatement stmt = c.prepareStatement("SELECT * FROM stations");
             ResultSet rs = stmt.executeQuery();
         ) {
             while (rs.next()) {

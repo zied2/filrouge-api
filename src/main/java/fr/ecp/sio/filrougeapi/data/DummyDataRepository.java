@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by usersio on 24/10/2016.
+ * A DataRepository that returns fake data.
  */
 public class DummyDataRepository implements DataRepository {
 

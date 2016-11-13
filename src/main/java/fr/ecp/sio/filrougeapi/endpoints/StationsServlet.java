@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by usersio on 24/10/2016.
+ * A servlet to handle requests for a list of stations.
+ * This servlet receives requests to URLs /stations.
  */
 public class StationsServlet extends ApiServlet {
 

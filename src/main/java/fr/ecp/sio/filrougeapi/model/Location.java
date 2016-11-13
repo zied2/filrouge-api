@@ -1,7 +1,7 @@
 package fr.ecp.sio.filrougeapi.model;
 
 /**
- * Created by usersio on 24/10/2016.
+ * A POJO to represent a location.
  */
 public class Location {
 

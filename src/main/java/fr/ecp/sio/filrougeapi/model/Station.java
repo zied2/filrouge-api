@@ -1,7 +1,7 @@
 package fr.ecp.sio.filrougeapi.model;
 
 /**
- * Created by usersio on 24/10/2016.
+ * A POJO to represent a station.
  */
 public class Station {
 
@@ -51,4 +51,5 @@ public class Station {
     public void setAvailableBikeStands(int availableBikeStands) {
         this.availableBikeStands = availableBikeStands;
     }
+
 }

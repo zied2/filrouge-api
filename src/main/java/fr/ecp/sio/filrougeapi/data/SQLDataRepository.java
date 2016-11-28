@@ -77,9 +77,9 @@ public class SQLDataRepository implements DataRepository {
     @Override
     public List<Station> getStations() throws IOException {
         try (
-            Connection c = openConnection();
-            PreparedStatement stmt = c.prepareStatement("SELECT * FROM stations");
-            ResultSet rs = stmt.executeQuery();
+                Connection c = openConnection();
+                PreparedStatement stmt = c.prepareStatement("SELECT * FROM stations");
+                ResultSet rs = stmt.executeQuery();
         ) {
             List<Station> list = new ArrayList<>();
             // Iterate over all the lines of the result.
@@ -90,5 +90,15 @@ public class SQLDataRepository implements DataRepository {
         } catch (SQLException e) {
             throw new IOException("Database error", e);
         }
+    }
+
+    @Override
+    public List<Station> getStations(int offset, int limit) throws IOException {
+        return null;
+    }
+
+    @Override
+    public List<Station> getStations(String name) throws IOException {
+        return null;
     }
 }

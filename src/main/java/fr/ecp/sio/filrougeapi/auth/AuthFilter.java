@@ -19,14 +19,20 @@ public class AuthFilter implements Filter {
     // It is your responsibility to call filterChain.doFilter() somewhere in the implementation for the request to continue to the servlet.
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        // Let's inspect HTTP headers of the request.
-        String auth = ((HttpServletRequest) servletRequest).getHeader("Authorization");
-        //TODO: add an authentication mechanism here
-        if (auth == null) {
-            // If authentication or authorization fails, send an HTTP error response and do NOT call filterChain.doFilter().
-            ((HttpServletResponse) servletResponse).sendError(401, "Auth required");
-            return;
+
+        // If the servlet is /auth/token, do not apply the filter
+        String path = ((HttpServletRequest) servletRequest).getRequestURI();
+        if (!path.startsWith("/auth/token")) {
+            // Let's inspect HTTP headers of the request.
+            String auth = ((HttpServletRequest) servletRequest).getParameter("Authorization");
+
+            if (!AuthManager.isValidApiKey(auth)) {
+                // If authentication or authorization fails, send an HTTP error response and do NOT call filterChain.doFilter().
+                ((HttpServletResponse) servletResponse).sendError(401, "Auth required");
+                return;
+            }
         }
+
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

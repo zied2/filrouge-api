@@ -23,4 +23,19 @@ public interface DataRepository {
      */
     List<Station> getStations() throws IOException;
 
+    /*
+        Get a list of all stations.
+
+        @param int offset the offset to start from
+        @param int limit the limit of rows to be returned
+     */
+    List<Station> getStations(int offset, int limit) throws IOException;
+
+    /*
+        Get a list of stations by name
+
+        @param String stations
+     */
+    List<Station> getStations(String name) throws IOException;
+
 }

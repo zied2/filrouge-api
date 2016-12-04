@@ -21,4 +21,15 @@ public class StationsResponse {
         }
     }
 
+    public List<Station> getStations() {
+        return stations;
+    }
+
+    public int getTotalBikes() {
+        return totalBikes;
+    }
+
+    public int getTotalAvailableBikes() {
+        return totalAvailableBikes;
+    }
 }

@@ -4,11 +4,14 @@ import fr.ecp.sio.filrougeapi.auth.AuthManager;
 import fr.ecp.sio.filrougeapi.data.DataRepository;
 import fr.ecp.sio.filrougeapi.data.DataUtils;
 import fr.ecp.sio.filrougeapi.model.Station;
+import fr.ecp.sio.filrougeapi.model.TokenResponse;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A servlet to handle requests for a single station.
@@ -26,10 +29,16 @@ public class AuthServlet extends ApiServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
 
+        String token = AuthManager.getAPIKey(login, password);
 
-
-
+        if (token != null) {
+            sendResponse(new TokenResponse(token), resp);
+        } else {
+            resp.sendError(401, "Invalid username/password");
+        }
     }
 
 }

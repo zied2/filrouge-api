@@ -22,9 +22,10 @@ public class AuthFilter implements Filter {
 
         // If the servlet is /auth/token, do not apply the filter
         String path = ((HttpServletRequest) servletRequest).getRequestURI();
+
         if (!path.startsWith("/auth/token")) {
             // Let's inspect HTTP headers of the request.
-            String auth = ((HttpServletRequest) servletRequest).getParameter("Authorization");
+            String auth = ((HttpServletRequest) servletRequest).getHeader("Authorization");
 
             if (!AuthManager.isValidApiKey(auth)) {
                 // If authentication or authorization fails, send an HTTP error response and do NOT call filterChain.doFilter().
